@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int fact(int n) {
+  // this is the base condition for stop the calling of the function;
+
+  cout<<"this is the functon call for n : "<<n<<endl;
+  if (n == 0 || n == 1) {
+    return 1;
+  }
+
+  int ans = n * fact(n - 1);
+  return ans;
+}
+
+int main() {
+  // std::cout << "Hello World!\n";
+  int n;
+  cout << "enter the value of n: ";
+  cin >> n;
+
+  cout << endl;
+  int ans = fact(n);
+
+  cout << "the value of fact : " << ans;
+}
