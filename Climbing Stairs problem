@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int climbStairs(int n)
+{
+  // base case 
+  if(n==0||n==1)
+  {
+    return 1;
+  } 
+  
+  // recurence relation 
+  int ans = climbStairs(n-1)+climbStairs(n-2);
+  return ans ;
+}
+
+int main() {
+  cout << "Hello world!" << endl;
+
+  int n;
+  // cout<<"enter the value of the stairs: ";
+  cin>>n;
+  int ans = climbStairs(n);
+  cout<<"this the value of the total climbing way to reach on destination: "<<ans;
+  return 0;
+}
