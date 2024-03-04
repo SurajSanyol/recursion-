@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+bool checkKey(string str, int n , char key,int i)
+{
+   if(i>=n)
+   {
+    return false ;
+   }
+
+   if(str[i]==key)
+   {
+      return true;
+   }
+
+    return checkKey(str,n,key ,i+1);
+     
+}
+
+int main() {
+  cout << "Hello world!" << endl;
+  
+   string str = "SurajSanyal";
+   int n= str.length();
+   char key = 'j';
+   int i =0;
+
+   bool ans = checkKey(str , n , key ,i);
+
+    cout<<"answer is : "<<ans;
+
+  return 0;
+}
