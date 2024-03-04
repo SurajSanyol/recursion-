@@ -1,0 +1,50 @@
+#include <iostream>
+#include <limits.h>
+using namespace std;
+
+void  findMaxElement (int arr[],int n , int i, int& maxElement)
+{
+  if(i<n){
+   
+    if(maxElement<arr[i])
+    {
+      maxElement=arr[i];
+    }
+    
+    findMaxElement(arr , n , i+1,maxElement); 
+
+  }
+ 
+}
+
+void  fintMinElement (int arr[],int n , int i, int& miniElement)
+{
+  
+  //this is base condition
+   if(i>=n)
+   {
+    return;
+   }
+
+   if(arr[i]<miniElement)
+   {
+    miniElement=arr[i];
+   }
+   
+  fintMinElement(arr , n , i+1,miniElement); 
+ 
+}
+
+int main() {
+  cout << "Hello world!" << endl;
+  int arr[5]={10,60,30,-80,50};
+  
+  int maxElement = INT_MIN;
+  int miniElement = INT_MAX;
+  int i=0;
+  findMaxElement(arr,5,i,maxElement);
+  fintMinElement(arr,5,i,miniElement);
+  cout<<"this print the maxElement: "<<maxElement<<endl;
+  cout<<"this is the minimum element: "<<miniElement;
+  return 0;
+}
