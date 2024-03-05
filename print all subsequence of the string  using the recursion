@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+void subSequence(string str, int i , string output)
+{
+  // this base case 
+  if(i>=str.length())
+  {
+    cout<<output<<endl;
+    return;
+  }
+  
+  // exclude 
+  subSequence(str , i+1 , output);
+
+  //include
+    output.push_back(str[i]);
+   subSequence(str , i+1, output );
+
+}
+
+int main() {
+  cout << "Hello world!" << endl;
+
+   string str = "abc";
+   string output = "";
+   int i=0;
+   subSequence(str,i,output);
+  return 0;
+}
