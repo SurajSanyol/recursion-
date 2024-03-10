@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+void lastOccur(string &str , int i , char& x,int& store)
+{ 
+
+  // base case
+   if(i>=str.length())
+   {
+    return ;
+   }
+    
+    // ek case solve 
+    if(str[i]==x)
+    {
+      store = i;
+    }
+
+     lastOccur(str,i+1,x,store);
+
+  
+}
+
+int main() {
+  cout << "Hello world!" << endl;
+   string str ;
+   cin>>str;
+   char x ;
+   cin>>x;
+   int i=0;
+   int store = -1;
+    lastOccur(str ,i,x,store);
+     cout<<"Answer is : "<<store ;
+  return 0;
+}
