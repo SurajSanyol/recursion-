@@ -1,0 +1,29 @@
+class Solution {
+public:
+       void removeAllOccurence(string &s, string& part)
+       {
+          // base case 
+            int pos = s.find(part);
+             if(pos==string::npos)
+             {
+                return;
+             }
+
+
+
+          // ek case solve 
+             
+             if(pos!=string::npos)
+             {
+                s.erase(pos,part.length());
+             }
+
+             removeAllOccurence(s,part);
+
+       }
+    string removeOccurrences(string s, string part) {
+
+         removeAllOccurence(s, part);
+        return s;
+    }
+};
