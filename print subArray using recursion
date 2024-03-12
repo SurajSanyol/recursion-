@@ -1,0 +1,38 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+void printSubArray_utils(vector<int>&arr,int start,int end)
+{
+  // base case
+   if(end>arr.size()-1)
+   {
+    return;
+   }
+
+   //ek case solve
+    for(int i=start;i<=end;i++)
+    {
+      cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+
+      printSubArray_utils(arr,start, end+1);
+}
+
+void printSubArray(vector<int>&arr)
+{
+  for(int start=0;start<arr.size();start++)
+    {
+      int end = start;
+      printSubArray_utils(arr,start,end);
+    }
+}
+
+int main() {
+  cout << "Hello world!" << endl;
+
+   vector<int>arr{1,2,3,4};
+   printSubArray(arr);
+  return 0;
+}
