@@ -1,0 +1,51 @@
+class Solution {
+public:
+  
+  bool isMAtchHelper(string& s, int Si, string& p,int Pi)
+ {
+     // base case 
+      if(Si ==s.size() && Pi ==p.size())
+      {
+        return true;
+      }
+
+
+      if(Si==s.size() && Pi<p.size())
+      {
+         while(Pi<p.size())
+         {
+            if(p[Pi]!='*') return false;
+            Pi++;
+         }
+         return true;
+      }
+
+     // single character match
+      if(s[Si]==p[Pi]||'?'==p[Pi])
+      {
+        return isMAtchHelper(s,Si+1,p,Pi+1);
+      }
+
+      if(p[Pi]=='*')
+      {
+        // treat '*' as a null or empty
+         bool caseA = isMAtchHelper(s,Si,p,Pi+1);
+        
+        // lets '*' consume one character
+         bool caseB = isMAtchHelper(s,Si+1,p,Pi);
+
+         return caseA || caseB;
+      }
+       
+       // char does not match
+       return false;
+ }   
+
+
+    bool isMatch(string s, string p) {
+        int Si=0;
+        int Pi = 0;
+
+        return isMAtchHelper(s,Si,p,Pi);
+    }
+};
